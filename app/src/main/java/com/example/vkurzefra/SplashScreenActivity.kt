@@ -63,7 +63,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
         // Обработчик нажатия для button2
         button2.setOnClickListener {
-            startMainActivity()
+            startMainActivity2()
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -75,6 +75,10 @@ class SplashScreenActivity : AppCompatActivity() {
 
     private fun startMainActivity() {
         startActivity(Intent(this, MainActivity::class.java))
+        finish() // Закрываем эту активность
+    }
+    private fun startMainActivity2() {
+        startActivity(Intent(this, MainActivity2::class.java))
         finish() // Закрываем эту активность
     }
 }

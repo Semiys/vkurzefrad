@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/nav_home2">
+
+    <fragment
+        android:id="@+id/nav_home2"
+        android:name="com.example.vkurzefra.ui.home.HomeFragment2"
+        android:label="@string/menu_home2"
+        tools:layout="@layout/fragment_home2" />
+
+    <fragment
+        android:id="@+id/nav_gallery2"
+        android:name="com.example.vkurzefra.ui.gallery.GalleryFragment2"
+        android:label="@string/menu_gallery2"
+        tools:layout="@layout/fragment_gallery2" />
+
+    <fragment
+        android:id="@+id/nav_slideshow2"
+        android:name="com.example.vkurzefra.ui.slideshow.SlideshowFragment2"
+        android:label="@string/menu_slideshow2"
+        tools:layout="@layout/fragment_slideshow2" />
+</navigation>
