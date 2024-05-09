@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.vkurzefra.R
 import com.example.vkurzefra.databinding.FragmentSlideshowBinding
 
 class SlideshowFragment : Fragment() {
@@ -15,24 +17,24 @@ class SlideshowFragment : Fragment() {
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding!!
+
+    private lateinit var webView: WebView
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val slideshowViewModel =
-            ViewModelProvider(this).get(SlideshowViewModel::class.java)
+        val view = inflater.inflate(R.layout.fragment_slideshow, container, false)
 
-        _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        webView = view.findViewById(R.id.webview)
+        // Включаем JavaScript (если это необходимо)
+        webView.settings.javaScriptEnabled = true
 
-        val textView: TextView = binding.textSlideshow
-        slideshowViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+        // Загружаем URL
+        webView.loadUrl("https://vkurse.online")
+
+        return view
     }
 
     override fun onDestroyView() {
